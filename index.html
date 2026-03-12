@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="專業八字易經算命咨詢服務，精準排盤解析，線上咨詢隨時隨地開聊。">
-    <meta name="keywords" content="八字算命,易經卦象,命理咨詢,線上算命,感情財運,事業運勢">
-    <title>八字易經算命 | 專業老師線上咨詢</title>
+    <meta name="description" content="二十年通靈師，已幫 10000+ 人預知福報、化解沖煞。通靈問事、桃花姻緣、事業財運全解讀。">
+    <meta name="keywords" content="八字算命,通靈問事,桃花姻緣,事業財運,沖煞化解,命理咨詢">
+    <title>通靈問事 | 八字易經算命咨詢 - 二十年通靈師</title>
     <style>
         * {
             margin: 0;
@@ -14,45 +14,57 @@
         }
 
         :root {
-            --primary-dark: #1a1a3e;
-            --primary-blue: #2d3561;
-            --accent-purple: #6b4c9a;
-            --accent-gold: #d4af37;
-            --text-dark: #1a1a1a;
-            --text-light: #f5f5f5;
-            --button-red: #e74c3c;
-            --button-green: #27ae60;
+            --gold-primary: #C9A961;
+            --gold-dark: #9B7E52;
+            --gold-accent: #B8956A;
+            --red-primary: #B22222;
+            --red-dark: #8B0000;
+            --black-text: #2a2a2a;
+            --text-light: #ffffff;
+            --border-gold: #8B6F47;
+            --bg-dark: #3d3d3d;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Microsoft YaHei', '微軟雅黑', 'SimHei', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: var(--black-text);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
         }
 
         /* ============ 通用樣式 ============ */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .section {
+        /* ============ 第一屏：英雄區塊（大滿版） ============ */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: 
+                linear-gradient(rgba(201, 169, 97, 0.85), rgba(155, 126, 82, 0.85)),
+                url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663376166215/zYZFLiZeYJirAIoq.png') center/cover no-repeat;
             padding: 60px 20px;
         }
 
-        /* ============ 第一屏：英雄區塊 ============ */
-        .hero {
-            background: linear-gradient(135deg, rgba(26, 26, 62, 0.9) 0%, rgba(107, 76, 154, 0.8) 100%);
-            position: relative;
-            overflow: hidden;
+        @keyframes goldGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
+        /* 古風裝飾層 - 祥雲紋理 */
         .hero::before {
             content: '';
             position: absolute;
@@ -60,103 +72,196 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(107, 76, 154, 0.1) 0%, transparent 50%);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 20c-10 0-15 5-15 10s5 10 15 10 15-5 15-10-5-10-15-10zm-20 30c-10 0-15 5-15 10s5 10 15 10 15-5 15-10-5-10-15-10zm40 0c-10 0-15 5-15 10s5 10 15 10 15-5 15-10-5-10-15-10z" fill="rgba(139,111,71,0.08)"/></svg>');
+            background-size: 200px 200px;
             pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* 漸層遮罩層 */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(155, 126, 82, 0.4) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 古風紋理層 - 左側 */
+        .hero-texture-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15%;
+            height: 80%;
+            background: 
+                repeating-linear-gradient(90deg, rgba(139, 111, 71, 0.05) 0px, rgba(139, 111, 71, 0.05) 2px, transparent 2px, transparent 4px),
+                repeating-linear-gradient(0deg, rgba(139, 111, 71, 0.03) 0px, rgba(139, 111, 71, 0.03) 2px, transparent 2px, transparent 4px);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* 古風紋理層 - 右側 */
+        .hero-texture-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15%;
+            height: 80%;
+            background: 
+                repeating-linear-gradient(90deg, rgba(139, 111, 71, 0.05) 0px, rgba(139, 111, 71, 0.05) 2px, transparent 2px, transparent 4px),
+                repeating-linear-gradient(0deg, rgba(139, 111, 71, 0.03) 0px, rgba(139, 111, 71, 0.03) 2px, transparent 2px, transparent 4px);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 40px;
             align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 4.2rem;
+            font-weight: 900;
             color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            text-shadow: 
+                4px 4px 0px var(--border-gold),
+                8px 8px 0px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+            line-height: 1.15;
+            animation: slideDown 0.8s ease-out;
+            border: 4px solid var(--border-gold);
+            padding: 25px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-text p {
-            font-size: 1.3rem;
-            color: rgba(245, 245, 245, 0.9);
-            margin-bottom: 40px;
-            line-height: 1.8;
+            font-size: 1.7rem;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 50px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out 0.3s both;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .hero-image-full {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(184, 149, 106, 0.2) 100%);
+            border: 5px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 0 50px rgba(139, 111, 71, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 580px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-image-full img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 18px 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
+            padding: 28px 80px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: 4px solid var(--gold-primary);
+            border-radius: 20px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease-out 0.9s both;
         }
 
-        .cta-button-red {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        .cta-button-primary {
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
             color: white;
         }
 
-        .cta-button-red:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.4);
+        .cta-button-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(178, 34, 34, 0.5);
+            background: linear-gradient(135deg, var(--red-dark) 0%, var(--red-primary) 100%);
         }
 
-        .cta-button-green {
-            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
-            color: white;
+        .cta-button-primary:active {
+            transform: translateY(-2px);
         }
 
-        .cta-button-green:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.4);
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .hero-image {
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 15px 50px rgba(178, 34, 34, 0.3);
+            }
+            50% {
+                box-shadow: 0 20px 70px rgba(178, 34, 34, 0.5);
+            }
+        }
+
+        /* ============ 第二屏：賣點區塊 ============ */
+        .features {
+            background: linear-gradient(135deg, #C9A961 0%, #B8956A 100%);
+            padding: 80px 20px;
             position: relative;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
         }
 
-        .hero-image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(107, 76, 154, 0.2) 100%),
-                        url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663376166215/cIKyYKHBSvNIskcn.png') center/cover no-repeat;
-            border-radius: 20px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: rgba(245, 245, 245, 0.6);
-            text-align: center;
-            padding: 40px;
-            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.1);
-        }
-
-        /* ============ 第二屏：服務介紹 ============ */
-        .services {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-            position: relative;
-        }
-
-        .services::before {
+        .features::before {
             content: '';
             position: absolute;
             top: 0;
@@ -164,11 +269,12 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+                repeating-linear-gradient(0deg, rgba(139, 111, 71, 0.02) 0px, rgba(139, 111, 71, 0.02) 1px, transparent 1px, transparent 2px),
+                repeating-linear-gradient(90deg, rgba(139, 111, 71, 0.02) 0px, rgba(139, 111, 71, 0.02) 1px, transparent 1px, transparent 2px);
             pointer-events: none;
         }
 
-        .services-content {
+        .features-content {
             position: relative;
             z-index: 2;
         }
@@ -179,93 +285,101 @@
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--text-light);
+            font-size: 3.3rem;
+            color: var(--red-primary);
             margin-bottom: 15px;
+            text-shadow: 
+                3px 3px 0px var(--border-gold),
+                6px 6px 0px rgba(0, 0, 0, 0.2);
+            font-weight: 900;
+            letter-spacing: 2px;
+            border: 4px solid var(--border-gold);
+            padding: 25px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
         }
 
         .section-title p {
-            font-size: 1.1rem;
-            color: rgba(245, 245, 245, 0.8);
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.75);
+            margin-top: 20px;
+            font-weight: 600;
         }
 
-        .services-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-bottom: 50px;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 40px 30px;
+        .feature-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(184, 149, 106, 0.2) 100%);
+            border: 4px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 35px;
             text-align: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-        }
-
-        .service-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(212, 175, 55, 0.5);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            color: rgba(245, 245, 245, 0.85);
-            line-height: 1.6;
-        }
-
-        .trust-elements {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .trust-item {
-            text-align: center;
-            color: rgba(245, 245, 245, 0.9);
-        }
-
-        .trust-item-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .trust-item-text {
-            font-size: 0.95rem;
-            color: rgba(245, 245, 245, 0.8);
-        }
-
-        /* ============ 第三屏：聯絡區塊 ============ */
-        .contact {
-            background: linear-gradient(135deg, rgba(26, 26, 62, 0.95) 0%, rgba(45, 53, 97, 0.95) 100%);
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .contact::before {
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(184, 149, 106, 0.3) 100%);
+        }
+
+        .feature-icon {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.6rem;
+            color: var(--red-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-item p {
+            font-size: 1.15rem;
+            color: rgba(0, 0, 0, 0.75);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* ============ 第三屏：信任區塊 ============ */
+        .trust {
+            background: linear-gradient(135deg, #C9A961 0%, #9B7E52 50%, #B8956A 100%);
+            background-size: 400% 400%;
+            animation: goldGradient 15s ease infinite;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust::before {
             content: '';
             position: absolute;
             top: 0;
@@ -273,28 +387,51 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(107, 76, 154, 0.1) 0%, transparent 50%);
+                repeating-linear-gradient(0deg, rgba(139, 111, 71, 0.02) 0px, rgba(139, 111, 71, 0.02) 1px, transparent 1px, transparent 2px),
+                repeating-linear-gradient(90deg, rgba(139, 111, 71, 0.02) 0px, rgba(139, 111, 71, 0.02) 1px, transparent 1px, transparent 2px);
             pointer-events: none;
         }
 
-        .contact-content {
+        .trust-content {
             position: relative;
             z-index: 2;
             text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .contact-content h2 {
-            font-size: 2.5rem;
+        .trust-content h2 {
+            font-size: 3.1rem;
             color: var(--text-light);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            text-shadow: 
+                4px 4px 0px rgba(0, 0, 0, 0.4);
+            font-weight: 900;
+            letter-spacing: 2px;
+            border: 4px solid var(--text-light);
+            padding: 25px;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
         }
 
         .countdown {
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            margin-bottom: 40px;
-            font-weight: 600;
+            font-size: 1.8rem;
+            color: var(--red-primary);
+            margin-bottom: 45px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 18px 35px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 3px solid var(--border-gold);
+        }
+
+        .countdown-number {
+            font-size: 2.2rem;
+            color: var(--red-primary);
+            font-weight: 900;
         }
 
         .cta-buttons-group {
@@ -305,60 +442,146 @@
             margin-bottom: 50px;
         }
 
-        .contact-info {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 40px;
+        .trust-info {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(184, 149, 106, 0.15) 100%);
+            border: 5px solid var(--border-gold);
+            border-radius: 25px;
+            padding: 50px;
             margin-top: 50px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
         }
 
-        .contact-info h3 {
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+        .trust-info h3 {
+            color: var(--red-primary);
+            margin-bottom: 35px;
+            font-size: 2rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border-bottom: 4px solid var(--border-gold);
+            padding-bottom: 18px;
         }
 
-        .contact-info p {
-            color: rgba(245, 245, 245, 0.85);
-            margin-bottom: 15px;
-            font-size: 1rem;
+        .trust-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .trust-stat {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--red-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust-stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--red-primary);
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        .trust-stat-label {
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.8);
+            font-weight: 600;
+        }
+
+        .trust-info p {
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 18px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .line-contact {
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(178, 34, 34, 0.3);
+            border: 3px solid var(--gold-primary);
+        }
+
+        .line-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(178, 34, 34, 0.5);
         }
 
         /* ============ 響應式設計 ============ */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-texture-left,
+            .hero-texture-right {
+                width: 10%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-text h1 {
                 font-size: 2.2rem;
+                text-shadow: 2px 2px 0px var(--border-gold), 4px 4px 0px rgba(0, 0, 0, 0.4);
             }
 
             .hero-text p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
-            .hero-image {
-                height: 350px;
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 1.1rem;
+                width: 100%;
             }
 
             .section-title h2 {
                 font-size: 2rem;
             }
 
-            .services-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .trust-elements {
                 gap: 20px;
             }
 
-            .contact-content h2 {
+            .feature-item {
+                padding: 25px;
+            }
+
+            .feature-icon {
+                font-size: 2.8rem;
+            }
+
+            .feature-item h3 {
+                font-size: 1.3rem;
+            }
+
+            .feature-item p {
+                font-size: 1rem;
+            }
+
+            .trust-content h2 {
                 font-size: 2rem;
             }
 
@@ -366,187 +589,218 @@
                 flex-direction: column;
             }
 
-            .cta-button {
-                width: 100%;
+            .trust-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .trust-info {
+                padding: 30px 20px;
+            }
+
+            .hero-texture-left,
+            .hero-texture-right {
+                width: 8%;
             }
         }
 
         @media (max-width: 480px) {
-            .section {
-                padding: 40px 15px;
-            }
-
             .hero-text h1 {
                 font-size: 1.8rem;
+                text-shadow: 1px 1px 0px var(--border-gold), 2px 2px 0px rgba(0, 0, 0, 0.4);
+                padding: 15px;
+                border: 3px solid var(--border-gold);
             }
 
             .hero-text p {
                 font-size: 1rem;
             }
 
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 1rem;
-            }
-
-            .service-card {
-                padding: 30px 20px;
+            .hero-image-full {
+                min-height: 300px;
             }
 
             .section-title h2 {
                 font-size: 1.6rem;
             }
 
-            .trust-elements {
-                flex-direction: column;
-                gap: 15px;
+            .feature-item {
+                padding: 20px;
             }
-        }
 
-        /* ============ 動畫效果 ============ */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .feature-icon {
+                font-size: 2.5rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .feature-item h3 {
+                font-size: 1.1rem;
             }
-        }
 
-        .hero-text {
-            animation: fadeInUp 0.8s ease-out;
-        }
+            .feature-item p {
+                font-size: 0.95rem;
+            }
 
-        .hero-image {
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
+            .trust-content h2 {
+                font-size: 1.6rem;
+            }
 
-        .service-card {
-            animation: fadeInUp 0.8s ease-out;
-        }
+            .countdown {
+                font-size: 1.2rem;
+            }
 
-        .service-card:nth-child(2) {
-            animation-delay: 0.1s;
-        }
+            .countdown-number {
+                font-size: 1.8rem;
+            }
 
-        .service-card:nth-child(3) {
-            animation-delay: 0.2s;
-        }
+            .trust-stat-value {
+                font-size: 1.8rem;
+            }
 
-        .service-card:nth-child(4) {
-            animation-delay: 0.3s;
+            .trust-stat-label {
+                font-size: 0.95rem;
+            }
+
+            .hero-texture-left,
+            .hero-texture-right {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <!-- ============ 第一屏：英雄區塊 ============ -->
     <section class="hero">
+        <!-- 古風紋理層 -->
+        <div class="hero-texture-left"></div>
+        <div class="hero-texture-right"></div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>八字易經算命，一看就懂你的命運</h1>
-                    <p>專業老師親自解析，事業、感情、財運、健康全解讀</p>
-                    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" class="cta-button cta-button-red" target="_blank">立即咨詢（點擊開 Line）</a>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-image-placeholder">
-                        <!-- 
-                        圖片生成提示詞（用於 Canva 或 Midjourney）：
-                        "A mystical yet warm illustration featuring a traditional Chinese Bazi chart with I Ching hexagrams, 
-                        a silhouette of a wise teacher holding ancient scrolls, soft purple and deep blue gradient background 
-                        with subtle starlight and ancient book textures, minimalist modern style, professional and trustworthy aesthetic"
-                        
-                        或簡化版：
-                        "八字命盤 易經卦象 老師剪影 書卷 神秘溫暖 紫藍漸層 星光紋理 極簡風格"
-                        -->
-                        🔮 八字命盤 + 易經卦象<br>（請用 Canva 或 Midjourney 生成圖片）
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ 第二屏：服務介紹 ============ -->
-    <section class="services">
-        <div class="container">
-            <div class="services-content">
-                <div class="section-title">
-                    <h2>為什麼選擇我們？</h2>
-                    <p>專業、保密、高效的線上算命服務</p>
-                </div>
-
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>精準八字排盤</h3>
-                        <p>精準八字排盤 + 易經卦象解析，深入剖析您的命運軌跡</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">💡</div>
-                        <h3>全面解讀</h3>
-                        <p>解答感情、婚姻、事業、財運、健康等多方面問題</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">💬</div>
-                        <h3>線上咨詢</h3>
-                        <p>線上咨詢，隨時隨地開聊，不受時間地點限制</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🎁</div>
-                        <h3>優惠方案</h3>
-                        <p>首次咨詢享優惠，保密絕不外洩，安心咨詢</p>
-                    </div>
-                </div>
-
-                <div class="trust-elements">
-                    <div class="trust-item">
-                        <div class="trust-item-icon">👥</div>
-                        <div class="trust-item-text">已幫助超過 5000+ 人</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-item-icon">⭐</div>
-                        <div class="trust-item-text">老師資歷深厚（15+ 年）</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-item-icon">🔒</div>
-                        <div class="trust-item-text">隱私保障 100%</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-item-icon">😊</div>
-                        <div class="trust-item-text">滿意度高達 98%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ 第三屏：聯絡區塊 ============ -->
-    <section class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2>準備改變你的命運了嗎？</h2>
-                <div class="countdown">
-                    ⏰ 限時優惠倒數：<span id="countdown">7</span> 天
-                </div>
-
-                <div class="cta-buttons-group">
-                    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" class="cta-button cta-button-green" target="_blank">
-                        立即咨詢（點擊開 Line）
+                    <h1>通靈問事<br>桃花姻緣<br>事業財運全解讀</h1>
+                    <p>二十年通靈師，已幫 10000+ 人預知福報、化解沖煞</p>
+                    <a href="https://lin.ee/Xqa6NXm" class="cta-button cta-button-primary pulse-animation" target="_blank">
+                        立即咨詢（點開 Line）
                     </a>
                 </div>
 
-                <div class="contact-info">
-                    <h3>📱 聯絡方式</h3>
-                    <p><strong>Line 官方帳號：</strong> @YOUR_LINE_ID</p>
-                    <p><strong>咨詢時間：</strong> 週一至週日 10:00 - 22:00</p>
-                    <p><strong>隱私保障：</strong> 所有咨詢內容嚴格保密，絕不外洩</p>
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: rgba(245, 245, 245, 0.7);">
-                        💡 提示：首次咨詢客戶享 20% 優惠，立即點擊 Line 開啟對話！
+                <div class="hero-image-container">
+                    <div class="hero-image-full">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663376166215/nQmVIODNNZqeIuFz.jpg" alt="通靈問事主圖">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 第二屏：賣點區塊 ============ -->
+    <section class="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="section-title">
+                    <h2>✨ 我們的專業服務</h2>
+                    <p>一站式命理解讀，助您趨吉避凶</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">💕</span>
+                        <h3>桃花姻緣</h3>
+                        <p>分析愛情走向、姻緣質量、提升感情運勢</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <h3>事業財運</h3>
+                        <p>沖煞化解、招正偏財、事業起色指引</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <h3>沖煞化解</h3>
+                        <p>化解煞氣、轉運開運、改善運勢</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">🏥</span>
+                        <h3>健康學業</h3>
+                        <p>預防疾病、考運提升、學業運勢分析</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <h3>家庭人際</h3>
+                        <p>化解小人、改善關係、家庭和諧指引</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">📅</span>
+                        <h3>流年運勢</h3>
+                        <p>2026丙午年運勢預測、轉機把握</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">🔮</span>
+                        <h3>通靈問事</h3>
+                        <p>直通靈界、問事解惑、預知福報</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <h3>隱私保障</h3>
+                        <p>絕不外洩、專業保密、安心咨詢</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 第三屏：信任區塊 ============ -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-content">
+                <h2>準備改變你的命運了嗎？</h2>
+                <div class="countdown">
+                    ⏰ 限時優惠倒數：<span class="countdown-number" id="countdown">7</span> 天
+                </div>
+
+                <div class="cta-buttons-group">
+                    <a href="https://lin.ee/Xqa6NXm" class="cta-button cta-button-primary pulse-animation" target="_blank">
+                        立即咨詢（點開 Line）
+                    </a>
+                </div>
+
+                <div class="trust-info">
+                    <h3>📱 聯絡我們</h3>
+
+                    <div class="trust-stats">
+                        <div class="trust-stat">
+                            <div class="trust-stat-value">10000+</div>
+                            <div class="trust-stat-label">已幫助人數</div>
+                        </div>
+                        <div class="trust-stat">
+                            <div class="trust-stat-value">20年</div>
+                            <div class="trust-stat-label">通靈師資歷</div>
+                        </div>
+                        <div class="trust-stat">
+                            <div class="trust-stat-value">98%</div>
+                            <div class="trust-stat-label">滿意度</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Line 官方帳號：</strong></p>
+                    <a href="https://lin.ee/Xqa6NXm" class="line-contact" target="_blank">
+                        💬 點擊開啟 Line 咨詢
+                    </a>
+
+                    <p style="margin-top: 30px;">
+                        <strong>咨詢時間：</strong> 週一至週日 10:00 - 22:00<br>
+                        <strong>首次咨詢：</strong> 享 20% 優惠<br>
+                        <strong>隱私保障：</strong> 所有咨詢內容嚴格保密，絕不外洩
+                    </p>
+
+                    <p style="margin-top: 30px; font-size: 1.1rem; color: rgba(0, 0, 0, 0.9); font-weight: 700;">
+                        💡 立即點擊 Line，開啟您的命運轉機！
                     </p>
                 </div>
             </div>
@@ -556,7 +810,6 @@
     <script>
         // ============ 倒計時器邏輯 ============
         function updateCountdown() {
-            // 設定優惠截止日期（7天後）
             const endDate = new Date();
             endDate.setDate(endDate.getDate() + 7);
 
@@ -576,7 +829,6 @@
             setInterval(countdown, 1000);
         }
 
-        // 頁面加載時啟動倒計時
         document.addEventListener('DOMContentLoaded', updateCountdown);
 
         // ============ 平滑滾動 ============
@@ -590,75 +842,12 @@
             });
         });
 
-        // ============ 按鈕點擊追蹤（可選，用於分析轉化） ============
+        // ============ 按鈕點擊追蹤（可選） ============
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', function() {
-                console.log('CTA 按鈕被點擊');
-                // 可以在這裡添加 Google Analytics 或其他追蹤代碼
+                console.log('CTA 按鈕被點擊 - 跳轉到 Line');
             });
         });
     </script>
 </body>
 </html>
-
-<!-- 
-========================================
-部署指南
-========================================
-
-【1】部署到 Vercel（最簡單）
----------
-步驟：
-1. 將此文件保存為 index.html
-2. 在 GitHub 上創建新倉庫，上傳 index.html
-3. 訪問 vercel.com，連接 GitHub 倉庫
-4. Vercel 會自動部署，獲得免費 URL
-
-【2】替換 Line 連結
----------
-搜尋 "YOUR_LINE_ID" 並替換為您的 Line ID：
-- 在代碼中找到所有 "https://line.me/R/ti/p/YOUR_LINE_ID"
-- 替換為您的實際 Line 連結，例如：
-  https://line.me/R/ti/p/@abc123xyz 或 https://line.me/R/oic/YOUR_OFFICIAL_ACCOUNT_ID
-
-【3】自訂文案
----------
-- 大標題：搜尋 "八字易經算命，一看就懂你的命運" 並修改
-- 副標：搜尋 "專業老師親自解析..." 並修改
-- 服務卡片：修改 service-card 中的 h3 和 p 標籤
-- 信任元素：修改 trust-item 中的數字和文字
-- 咨詢時間：修改 "週一至週日 10:00 - 22:00"
-
-【4】替換圖片
----------
-方法 A（推薦）：
-1. 用 Canva 或 Midjourney 生成圖片（提示詞已在代碼註解中）
-2. 將圖片上傳到 Imgur 或 Cloudinary
-3. 在 CSS 中找到 .hero-image-placeholder，替換為：
-   background-image: url('YOUR_IMAGE_URL');
-   background-size: cover;
-   background-position: center;
-
-方法 B（快速）：
-1. 直接修改 .hero-image-placeholder 中的文字和 emoji
-2. 或用 CSS 背景漸層替代
-
-【5】自訂顏色
----------
-在 CSS 中找到 :root 部分，修改：
---primary-dark: #1a1a3e;      // 深藍
---accent-gold: #d4af37;        // 金色
---button-red: #e74c3c;         // 紅色
---button-green: #27ae60;       // 綠色
-
-【6】修改倒計時天數
----------
-在 JavaScript 部分找到 endDate.setDate(endDate.getDate() + 7);
-將 7 改為您想要的天數
-
-【7】SEO 優化
----------
-修改 <title> 和 <meta name="description"> 標籤以改善搜尋排名
-
-========================================
--->
